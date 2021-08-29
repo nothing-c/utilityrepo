@@ -1,30 +1,34 @@
 #!/bin/sh
 
-#create output file to check at leisure
-touch scanout.txt
+#this way is so much simpler and actually works
+#direct to a txt file if necessary
 
-#check open ports and connections
-#need to install net-tools before using though
-netstat > scanout.txt
+#dependencies: auditd (if using auditd), net-tools
+#if you want the /etc/ outputs, you have to run as SU
+echo "Logged in:"
 
-#who is logged in and for how long
-w > scanout.txt
+w
 
-#login history
-last > scanout.txt
+echo "Login History:"
 
-#list of users
-cat /etc/passwd > scanout.txt
+last
 
-#list of sudoers
-cat /etc/sudoers > scanout.txt
+echo "Userlist:"
 
-#command history
-cat ~./bash_history > scanout.txt
+cat /etc/passwd
 
-#currently running commands
-ps > scanout.txt
+echo "Sudoers:"
 
-#optional: use auditd for command history
-#unknown if this will work because I don't have auditd installed (VM)
-#auditd > scanout.txt
+cat /etc/sudoers
+
+echo "Currently running commands:"
+
+ps
+
+#echo "Command history:"
+
+#auditd
+
+echo "Network info:"
+
+netstat
