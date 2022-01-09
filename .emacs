@@ -6,7 +6,8 @@
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -27,12 +28,14 @@
 (global-set-key "\C-q" 'save-buffers-kill-emacs)
 (global-set-key "\C-a" 'write-named-file)
 (global-set-key "\C-s" 'save-buffer)
-(global-set-key "\C-f" 'isearch-forward)
+;; These two can be switched -- regex search doesn't highlight smh
+;;(global-set-key "\C-f" 'isearch-forward)
+(global-set-key "\C-f" 're-search-forward)
 (global-set-key "\M-f" 'query-replace)
 (global-set-key "\C-o" 'find-file)
 (global-set-key "\C-n" 'switch-to-buffer) 
 (global-set-key "\M-q" 'delete-window)
-(global-set-key "\M-d" 'split-window-vertically)
+(global-set-key "\M-d" 'split-window-horizontally)
 (global-set-key "\M-s" 'other-window)
 (global-set-key (kbd "<C-right>") 'next-buffer)
 (global-set-key (kbd "<C-left>") 'previous-buffer)
