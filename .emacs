@@ -45,6 +45,7 @@
 (define-key nc-keymap (kbd "C-n")'switch-to-buffer) 
 (define-key nc-keymap (kbd "M-q") 'delete-window)
 (define-key nc-keymap (kbd "M-d") 'split-window-horizontally)
+(define-key nc-keymap (kbd "M-a") 'split-window-vertically)
 (define-key nc-keymap (kbd "M-s") 'other-window)
 (define-key nc-keymap (kbd "<C-right>") 'next-buffer)
 (define-key nc-keymap (kbd "<C-left>") 'previous-buffer)
