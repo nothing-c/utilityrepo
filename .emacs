@@ -39,7 +39,7 @@
 (define-key nc-keymap (kbd "C-s") 'save-buffer)
 ;; These two can be switched -- regex search doesn't highlight smh
 (define-key nc-keymap (kbd "C-f") 'isearch-forward)
-;;(define-key nc-keymap (kbd "C-f") 're-search-forward)
+(define-key nc-keymap (kbd "C-S-f") 're-search-forward)
 (define-key nc-keymap (kbd "M-f") 'query-replace)
 (define-key nc-keymap (kbd "C-o") 'find-file)
 (define-key nc-keymap (kbd "C-n")'switch-to-buffer) 
