@@ -22,7 +22,33 @@
  ;; If there is more than one, they won't work right.
  )
 
-(defvar autosave-dir (concat "~/.autosave" "/"))
+;;THE FUNCTION ZONE WOOOO
+
+;;saveas func
+(defun saveas ()
+  "Save file as new name"
+  (interactive)
+  (let ((newname (read-string "Save as: "))
+       (current (buffer-string)))
+  (find-file newname)
+  (insert current))
+  (save-buffer)
+  )
+
+;;remove stupid ~ files
+(defun remove-tilde ()
+  "Remove dumb tilde files"
+  (with-temp-buffer)
+  (shell-command (concat "cd " default-directory " ; rm *~"))
+  (shell-command "rm .*~")
+  )
+
+;;make ~files autodelete
+(defun full-quit ()
+  "Remove tilde files and quit"
+  (remove-tilde)
+  (save-buffers-kill-emacs)
+  )
 
 ;;C = control, M = meta, S = shift
 ;;Keybind resetting in progress
@@ -35,8 +61,8 @@
 (define-key nc-keymap (kbd "C-v") 'yank)
 (define-key nc-keymap (kbd "C-z") 'undo)
 (define-key nc-keymap (kbd "C-q") 'save-buffers-kill-emacs)
-(define-key nc-keymap (kbd "C-a") 'write-named-file)
-(define-key nc-keymap (kbd "C-s") 'save-buffer)
+(define-key nc-keymap (kbd "C-a") 'saveas)
+(define-key nc-keymap (kbd "C-s") 'full-quit)
 ;; These two can be switched -- regex search doesn't highlight smh
 (define-key nc-keymap (kbd "C-f") 'isearch-forward)
 (define-key nc-keymap (kbd "C-S-f") 're-search-forward)
@@ -52,6 +78,8 @@
 ;these are reversed for some reason
 (define-key nc-keymap (kbd "<C-down>") 'scroll-up)
 (define-key nc-keymap (kbd "<C-up>") 'scroll-down)
+(define-key nc-keymap (kbd "<M-right>") 'enlarge-window-horizontally)
+(define-key nc-keymap (kbd "<M-left>") 'shrink-window-horizontally)
 
 (define-minor-mode nckey-mode
   "Use a halfway-decent keymap, btfo Stallman"
