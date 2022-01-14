@@ -43,9 +43,10 @@
   (shell-command "rm .*~")
   )
 
-;;make ~files autodelete
+;;make ~ files autodelete
 (defun full-quit ()
   "Remove tilde files and quit"
+  (interactive)
   (remove-tilde)
   (save-buffers-kill-emacs)
   )
