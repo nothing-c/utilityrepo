@@ -22,6 +22,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;Change this file path based on what pic/file you want on startup
+(setq initial-buffer-choice "")
+
 ;;THE FUNCTION ZONE WOOOO
 
 ;;saveas func
@@ -61,9 +64,9 @@
 (define-key nc-keymap (kbd "C-x") 'kill-region)
 (define-key nc-keymap (kbd "C-v") 'yank)
 (define-key nc-keymap (kbd "C-z") 'undo)
-(define-key nc-keymap (kbd "C-q") 'save-buffers-kill-emacs)
+(define-key nc-keymap (kbd "C-q") 'full-quit)
 (define-key nc-keymap (kbd "C-a") 'saveas)
-(define-key nc-keymap (kbd "C-s") 'full-quit)
+(define-key nc-keymap (kbd "C-s") 'save-buffer)
 ;; These two can be switched -- regex search doesn't highlight smh
 (define-key nc-keymap (kbd "C-f") 'isearch-forward)
 (define-key nc-keymap (kbd "C-S-f") 're-search-forward)
@@ -92,3 +95,6 @@
 (add-to-list 'emulation-mode-map-alists
              `((nckey-mode . ,nc-keymap)))
 (provide 'nckey-mode)
+
+;;Overwrite when region selected
+(delete-selection-mode)
