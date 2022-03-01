@@ -24,7 +24,7 @@
 
 ;;Change this file path based on what pic/file you want on startup
 (setq initial-buffer-choice "")
-
+(setq tab-always-indent '())
 ;;THE FUNCTION ZONE WOOOO
 
 ;;saveas func
