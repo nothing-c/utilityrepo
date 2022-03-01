@@ -96,5 +96,8 @@
              `((nckey-mode . ,nc-keymap)))
 (provide 'nckey-mode)
 
+;;load general snippets
+(load "~/.emacs.d/general")
+
 ;;Overwrite when region selected
 (delete-selection-mode)
