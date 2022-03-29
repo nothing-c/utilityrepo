@@ -26,6 +26,7 @@
 (setq initial-buffer-choice "")
 (setq tab-always-indent '())
 (setq default-tab-width 4)
+(setq indent-line-function 'tab-to-tab-stop)
 ;;THE FUNCTION ZONE WOOOO
 
 ;;saveas func
@@ -85,6 +86,8 @@
 (define-key nc-keymap (kbd "<C-up>") 'scroll-down)
 (define-key nc-keymap (kbd "<M-right>") 'enlarge-window-horizontally)
 (define-key nc-keymap (kbd "<M-left>") 'shrink-window-horizontally)
+(define-key nc-keymap (kbd "<M-v>") 'viper-mode)
+(define-key nc-keymap (kbd "<M-b>") 'viper-go-away)
 
 (define-minor-mode nckey-mode
   "Use a halfway-decent keymap, btfo Stallman"
