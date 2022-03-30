@@ -27,6 +27,7 @@
 (setq tab-always-indent '())
 (setq default-tab-width 4)
 (setq indent-line-function 'tab-to-tab-stop)
+(setq mouse-autoselect-window t)
 ;;THE FUNCTION ZONE WOOOO
 
 ;;saveas func
