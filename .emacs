@@ -89,6 +89,14 @@
 (define-key nc-keymap (kbd "<M-left>") 'shrink-window-horizontally)
 (define-key nc-keymap (kbd "<M-v>") 'viper-mode)
 (define-key nc-keymap (kbd "<M-b>") 'viper-go-away)
+;;acme-type stuff here
+(define-key nc-keymap (kbd "<C-down-mouse-1>") 'copy-region-as-kill)
+(define-key nc-keymap (kbd "<C-down-mouse-2>") 'yank)
+(define-key nc-keymap (kbd "<C-down-mouse-3>") 'kill-region)
+(define-key nc-keymap (kbd "<C-mouse-1>") 'copy-region-as-kill)
+(define-key nc-keymap (kbd "<C-mouse-2>") 'yank)
+(define-key nc-keymap (kbd "<C-mouse-3>") 'kill-region)
+
 
 (define-minor-mode nckey-mode
   "Use a halfway-decent keymap, btfo Stallman"
