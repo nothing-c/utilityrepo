@@ -93,9 +93,9 @@
 (define-key nc-keymap (kbd "<C-down-mouse-1>") 'copy-region-as-kill)
 (define-key nc-keymap (kbd "<C-down-mouse-2>") 'yank)
 (define-key nc-keymap (kbd "<C-down-mouse-3>") 'kill-region)
-(define-key nc-keymap (kbd "<C-mouse-1>") 'copy-region-as-kill)
-(define-key nc-keymap (kbd "<C-mouse-2>") 'yank)
-(define-key nc-keymap (kbd "<C-mouse-3>") 'kill-region)
+;;(define-key nc-keymap (kbd "<C-mouse-1>") 'copy-region-as-kill)
+;;(define-key nc-keymap (kbd "<C-mouse-2>") 'yank)
+;;(define-key nc-keymap (kbd "<C-mouse-3>") 'kill-region)
 
 
 (define-minor-mode nckey-mode
