@@ -57,6 +57,11 @@
   (save-buffers-kill-emacs)
   )
 
+;;fix text-mode tab behavior
+(add-hook 'text-mode-hook
+          (lambda ()
+            (define-key text-mode-map "\t" 'tab-to-tab-stop)))
+
 ;;C = control, M = meta, S = shift
 ;;Keybind resetting in progress
 (defvar nc-keymap (make-sparse-keymap) "Keymap for stuff")
