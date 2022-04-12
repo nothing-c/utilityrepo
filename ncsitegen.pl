@@ -59,7 +59,7 @@ for $line (@lines){
 			$paracount++;
 		}
 	}
-	print $line;
+	#print $line;
 	push(@outformat, $line);
 	$i++;
 }
@@ -79,9 +79,11 @@ sub urlreplace{
 }
 
 $infile =~ s/\.md/\.html/;
-open($outfile, ">", "test.html");
+open($outfile, ">", "$infile");
+print $outfile "<html>";
 print $outfile $styles;
 print $outfile @outformat;
 print $outfile "<!-- Generated with N-C Softworks Site Generation Tool -->";
+print $outfile "</html>";
 close($outfile);
 print "Finished\n";
