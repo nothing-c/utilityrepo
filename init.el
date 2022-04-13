@@ -92,8 +92,8 @@
 (define-key nc-keymap (kbd "<C-up>") 'scroll-down)
 (define-key nc-keymap (kbd "<M-right>") 'enlarge-window-horizontally)
 (define-key nc-keymap (kbd "<M-left>") 'shrink-window-horizontally)
-(define-key nc-keymap (kbd "<M-v>") 'viper-mode)
-(define-key nc-keymap (kbd "<M-b>") 'viper-go-away)
+;;(define-key nc-keymap (kbd "<M-v>") 'viper-mode)
+;;(define-key nc-keymap (kbd "<M-b>") 'viper-go-away)
 ;;acme-type stuff here
 (define-key nc-keymap (kbd "<C-down-mouse-1>") 'copy-region-as-kill)
 (define-key nc-keymap (kbd "<C-down-mouse-2>") 'kill-region)
