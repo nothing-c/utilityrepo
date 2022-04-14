@@ -28,8 +28,10 @@
 (setq default-tab-width 4)
 (setq indent-line-function 'tab-to-tab-stop)
 (setq mouse-autoselect-window t)
-;;THE FUNCTION ZONE WOOOO
+;;fix dired mode
+(setq dired-kill-when-opening-new-dired-buffer t)
 
+;;THE FUNCTION ZONE WOOOO
 ;;saveas func
 (defun saveas ()
   "Save file as new name"
