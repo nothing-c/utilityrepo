@@ -39,3 +39,16 @@
   (if (window-system)
       (set-frame-width (selected-frame) 80))
   (delete-window))
+
+(defun nab-file (filelist)
+  "Helper function for open-dir"
+  (find-file (car filelist))
+  (nab-file (cdr filelist)))
+nab-file
+
+(defun open-dir ()
+  "Open the entire contents of a directory"
+  (interactive)
+  (setq dir (read-string "Dir: "))
+  (setq files (directory-files dir))
+  (nab-file files))
