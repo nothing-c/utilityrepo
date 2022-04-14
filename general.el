@@ -44,7 +44,6 @@
   "Helper function for open-dir"
   (find-file (car filelist))
   (nab-file (cdr filelist)))
-nab-file
 
 (defun open-dir ()
   "Open the entire contents of a directory"
