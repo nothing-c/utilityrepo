@@ -1,6 +1,6 @@
 #Generate N-C Softworks sites from markdown
 
-$styles = "<style>body {background-color: #262625} p,h1,h2,h3,h4,h5,h6 {color: white; text-align: center; font-family: arial; font-size: 120%} ul,li {list-style-position: inside; color: white; text-align: center; font-family: arial} </style>"; 
+$styles = "<style>body {background-color: #262625;color: white; text-align: center; font-family: arial; font-size: 120%} p,h1,h2,h3,h4,h5,h6 {color: white; text-align: center; font-family: arial; font-size: 120%} ul,li {list-style-position: inside; color: white; text-align: center; font-family: arial} </style>"; 
 
 $infile = $ARGV[0];
 @outformat;
@@ -13,28 +13,12 @@ for $line (@lines){
 	#bold
 	$line =~ s/\*\*(\s|\n)/<\/b>/g;
 	$line =~ s/\*\*/<b>/g;
-	#italics
-	$line =~ s/\*(\s|\n)/<\/i>/g;
-	$line =~ s/\*/<i>/g;
 	#strikethrough
 	$line =~ s/~~(\s|\n)/<\/strike>/g;
 	$line =~ s/~~/<strike>/g;
 	#links
 	if ($line =~ /\[.+\]\(.+\)/){
 		$line = urlreplace($line);	
-	}
-	#bullets
-	if ($line =~ /^\+/){
-		#hacky
-		$line =~ s/\+//;
-		$line = "<ul><li>$line</li>";
-		$k = $i + 1;
-		until ($lines[$k] !~ /^\+/){
-			$lines[$k] =~ s/\+//;
-			$lines[$k] = "<li>$lines[$k]</li>";
-			$k++;
-		}
-		$lines[$k] = "</ul>$lines[$k]";
 	}
 	#numbered lists
 	if ($line =~ /^[1-999]\./){
@@ -50,15 +34,7 @@ for $line (@lines){
 		$line =~ s/\n/<\/h$len>\n/;
 	}
 	#paragraphs
-	if ($line =~ /^\n/){
-		if ($paracount % 2 == 1){
-			$line = "<p>$line";
-			$paracount++;
-		} else {
-			$line = "</p>$line<p>";
-			$paracount++;
-		}
-	}
+	$line =~ s/\n/<br>/;
 	#print $line;
 	push(@outformat, $line);
 	$i++;
