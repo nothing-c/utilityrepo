@@ -51,3 +51,9 @@
   (setq dir (read-string "Dir: "))
   (setq files (directory-files dir))
   (nab-file files))
+
+(defun tmp-macs ()
+  "Spawn new emacs for possibly risky operations"
+  (interactive)
+  (with-temp-buffer)
+  (shell-command "emacs &"))
