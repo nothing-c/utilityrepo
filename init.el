@@ -121,7 +121,7 @@
 ;;c-d e[macs]
 (define-key nc-keymap (kbd "C-d e") 'tmp-macs)
 ;;c-d t[erminal]
-(defin-key nc-keymap (kbd "C-d t") 'esh-buf)
+(define-key nc-keymap (kbd "C-d t") 'esh-buf)
 
 
 (define-minor-mode nckey-mode
