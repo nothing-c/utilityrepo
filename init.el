@@ -118,9 +118,10 @@
 ;;(define-key nc-keymap (kbd "<C-mouse-1>") 'copy-region-as-kill)
 ;;(define-key nc-keymap (kbd "<C-mouse-2>") 'yank)
 ;;(define-key nc-keymap (kbd "<C-mouse-3>") 'kill-region)
-;;summon shell buffer
-(define-key nc-keymap (kbd "C-d e") 'esh-buf)
-
+;;c-d e[macs]
+(define-key nc-keymap (kbd "C-d e") 'tmp-macs)
+;;c-d t[erminal]
+(defin-key nc-keymap (kbd "C-d t") 'esh-buf)
 
 
 (define-minor-mode nckey-mode
