@@ -6,7 +6,7 @@
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(inhibit-startup-screen t)
+ '(inhibit-startup-screen t))
 (custom-set-faces)
 
 (setq initial-buffer-choice "~/")
