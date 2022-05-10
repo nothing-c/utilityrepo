@@ -79,64 +79,59 @@
 (add-hook 'kill-emacs-hook
 	  (lambda () (remove-tilde)))
 
-;;C = control, M = meta, S = shift
-;;Keybind resetting in progress
-(defvar nc-keymap (make-sparse-keymap) "Keymap for stuff")
-(define-key nc-keymap (kbd "C-d") 'Control-X-prefix)
-(define-key nc-keymap (kbd "C-e") 'mode-specific-command-prefix)
-(define-key nc-keymap (kbd "<home>") 'menu-bar-open)
-(define-key nc-keymap (kbd "C-c") 'copy-region-as-kill)
-(define-key nc-keymap (kbd "C-x") 'kill-region)
-(define-key nc-keymap (kbd "C-v") 'yank)
-(define-key nc-keymap (kbd "C-z") 'undo)
-(define-key nc-keymap (kbd "C-q") 'full-quit)
-(define-key nc-keymap (kbd "C-a") 'saveas)
-(define-key nc-keymap (kbd "C-s") 'save-buffer)
-;; These two can be switched -- regex search doesn't highlight smh
-(define-key nc-keymap (kbd "C-f") 'isearch-forward)
-(define-key nc-keymap (kbd "C-S-f") 're-search-forward)
-(define-key nc-keymap (kbd "M-f") 'query-replace)
-(define-key nc-keymap (kbd "C-o") 'find-file)
-(define-key nc-keymap (kbd "C-n")'switch-to-buffer) 
-(define-key nc-keymap (kbd "M-q") 'delete-window)
-(define-key nc-keymap (kbd "M-d") 'split-window-horizontally)
-(define-key nc-keymap (kbd "M-a") 'split-window-vertically)
-(define-key nc-keymap (kbd "M-s") 'other-window)
-(define-key nc-keymap (kbd "<C-right>") 'next-buffer)
-(define-key nc-keymap (kbd "<C-left>") 'previous-buffer)
-;these are reversed for some reason
-(define-key nc-keymap (kbd "<C-down>") 'scroll-up)
-(define-key nc-keymap (kbd "<C-up>") 'scroll-down)
-(define-key nc-keymap (kbd "<M-right>") 'enlarge-window-horizontally)
-(define-key nc-keymap (kbd "<M-left>") 'shrink-window-horizontally)
-(define-key nc-keymap (kbd "C-d v") 'viper-mode)
-(define-key nc-keymap (kbd "C-d b") 'viper-go-away)
-;;acme-type stuff here
-(define-key nc-keymap (kbd "<C-down-mouse-1>") 'copy-region-as-kill)
-(define-key nc-keymap (kbd "<C-down-mouse-2>") 'kill-region)
-(define-key nc-keymap (kbd "<C-down-mouse-3>") 'yank)
-;;(define-key nc-keymap (kbd "<C-mouse-1>") 'copy-region-as-kill)
-;;(define-key nc-keymap (kbd "<C-mouse-2>") 'yank)
-;;(define-key nc-keymap (kbd "<C-mouse-3>") 'kill-region)
-;;c-d e[macs]
-(define-key nc-keymap (kbd "C-d e") 'tmp-macs)
-;;c-d t[erminal]
-(define-key nc-keymap (kbd "C-d t") 'esh-buf)
+;; Cut/copy/paste
+(provide 'cua-mode)
+;; Note: for cua-mode, if you need to use a command on some text, use C-S-x or C-S-c
+(cua-mode)
 
+;;Overwrite when region selected
+(delete-selection-mode)
 
-(define-minor-mode nckey-mode
-  "Use a halfway-decent keymap, btfo Stallman"
+;; Keybinds
+;; General usage
+(global-set-key (kbd "<home>") 'menu-bar-open)
+(global-set-key (kbd "<C-right>") 'next-buffer)
+(global-set-key (kbd "<C-left>") 'previous-buffer)
+(global-set-key (kbd "C-S-s") 're-search-forward)
+(global-set-key (kbd "M-s") 'query-replace)
+(global-set-key (kbd "M-q") 'suspend-frame)
+;; Saveas is just C-x C-w lol
+
+;; Extra functionality
+(global-set-key (kbd "C-x t") 'esh-buf)
+(global-set-key (kbd "C-x e") 'tmp-macs)
+(global-set-key (kbd "C-x v") 'viper-mode)
+
+;; Special movement minor mode
+;; Like vi, but C-hjkl
+(defvar mv-map (make-sparse-keymap) "Special movement keymap")
+(define-key mv-map (kbd "C-h") 'backward-char)
+(define-key mv-map (kbd "C-k") 'previous-line)
+(define-key mv-map (kbd "C-j") 'next-line)
+(define-key mv-map (kbd "C-l") 'forward-char)
+(define-key mv-map (kbd "C-S-k") 'kill-line)
+(define-key mv-map (kbd "C-S-l") 'forward-word)
+(define-key mv-map (kbd "C-S-h") 'backward-word)
+(define-key mv-map (kbd "M-h") 'beginning-of-line)
+(define-key mv-map (kbd "M-l") 'end-of-line)
+
+(define-minor-mode mv-mode
+  "Vi-type movement with control keys"
   :global t
   :init-value t
-  :lighter " NCSOFT"
-  :keymap nc-keymap  
-)
+  :lighter " mv"
+  :keymap mv-map
+  )
 (add-to-list 'emulation-mode-map-alists
-             `((nckey-mode . ,nc-keymap)))
-(provide 'nckey-mode)
+	     `((mv-mode . ,mv-map)))
+(provide 'mv-mode)
 
 ;;load general snippets
 (load "~/.emacs.d/general")
 
 ;;Overwrite when region selected
 (delete-selection-mode)
+
+;;let dired use 'a'
+(put 'dired-find-alternate-file 'disabled nil)
+
