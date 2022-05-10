@@ -43,36 +43,21 @@
   (save-buffer)
   )
 
-;;remove stupid ~ files
-(defun remove-tilde ()
-  "Remove dumb tilde files"
-  (with-temp-buffer)
-  (shell-command (concat "cd " default-directory " ; rm *~"))
-  (shell-command "rm .*~")
-  )
-
-;;make ~ files autodelete
-(defun full-quit ()
-  "Remove tilde files and quit"
-  (interactive)
-  (remove-tilde)
-  (save-buffers-kill-emacs)
-  )
-
 (defun esh-buf ()
   "Quick eshell buffer"
   (interactive)
   (split-window-vertically)
 	(eshell))
 
+(defun new-esh ()
+  "Open new eshell instance"
+  (interactive)
+  (eshell 'N))
+
 ;;fix text-mode tab behavior
 (add-hook 'text-mode-hook
           (lambda ()
             (define-key text-mode-map "\t" 'tab-to-tab-stop)))
-
-;;make sure emacs murks the tilde files
-(add-hook 'kill-emacs-hook
-	  (lambda () (remove-tilde)))
 
 ;; Cut/copy/paste
 (provide 'cua-mode)
@@ -96,6 +81,7 @@
 (global-set-key (kbd "C-x t") 'esh-buf)
 (global-set-key (kbd "C-x e") 'tmp-macs)
 (global-set-key (kbd "C-x v") 'viper-mode)
+(global-set-key (kbd "C-S-e") 'new-esh)
 
 ;; Lisp interaction mode
 (define-key lisp-interaction-mode-map (kbd "C-e") 'eval-print-last-sexp)
