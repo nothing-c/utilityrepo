@@ -70,11 +70,6 @@
           (lambda ()
             (define-key text-mode-map "\t" 'tab-to-tab-stop)))
 
-;;stop dired from opening file in new buffer on click
-(add-hook 'dired-mode-hook
-	  (lambda ()
-	    (define-key dired-mode-map (kbd "<mouse-2>") 'dired-find-file)))
-
 ;;make sure emacs murks the tilde files
 (add-hook 'kill-emacs-hook
 	  (lambda () (remove-tilde)))
@@ -101,6 +96,9 @@
 (global-set-key (kbd "C-x t") 'esh-buf)
 (global-set-key (kbd "C-x e") 'tmp-macs)
 (global-set-key (kbd "C-x v") 'viper-mode)
+
+;; Lisp interaction mode
+(define-key lisp-interaction-mode-map (kbd "C-e") 'eval-print-last-sexp)
 
 ;; Special movement minor mode
 ;; Like vi, but C-hjkl
