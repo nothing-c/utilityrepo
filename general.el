@@ -57,3 +57,8 @@
   (interactive)
   (with-temp-buffer)
   (shell-command "emacs &"))
+
+(defun status ()
+  "Emacs status report"
+  (interactive)
+  (insert (concat (shell-command-to-string "date") (battery) "\n" (emacs-uptime) "\n" (emacs-version) "\n")))
