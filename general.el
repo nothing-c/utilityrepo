@@ -62,3 +62,7 @@
   "Emacs status report"
   (interactive)
   (insert (concat (shell-command-to-string "date") (battery) "\n" (emacs-uptime) "\n" (emacs-version) "\n")))
+
+(defun html-nc ()
+  (interactive)
+  (insert (concat "<!DOCTYPE html>\n<style>body {background-color: #262625;color: white; font-family: arial; font-size: 120%}p,h1,h2 {color: white; font-family: arial; font-size: 120%}a:link {color: #d468d4}a:visited {color: #d69fd6}</style>\n" "<title\n</title>\n" "<h1>\n</h1>\n" "<body>\n<p>\n</p></body>\n</html>\n")))
