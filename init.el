@@ -30,19 +30,10 @@
 (setq mouse-autoselect-window t)
 ;;fix dired mode
 (setq dired-kill-when-opening-new-dired-buffer t)
+;;fundamental mode sucks
+(setq-default major-mode 'text-mode)
 
 ;;THE FUNCTION ZONE WOOOO
-;;saveas func
-(defun saveas ()
-  "Save file as new name"
-  (interactive)
-  (let ((newname (read-string "Save as: "))
-       (current (buffer-string)))
-  (find-file newname)
-  (insert current))
-  (save-buffer)
-  )
-
 (defun esh-buf ()
   "Quick eshell buffer"
   (interactive)
@@ -111,7 +102,7 @@
 (provide 'mv-mode)
 
 ;;load general snippets
-(load "~/.emacs.d/general")
+(load "~/.emacs.d/general.el")
 
 ;;Overwrite when region selected
 (delete-selection-mode)
