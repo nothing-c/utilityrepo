@@ -50,6 +50,10 @@
           (lambda ()
             (define-key text-mode-map "\t" 'tab-to-tab-stop)))
 
+(add-hook 'html-mode-hook
+	  (lambda ()
+	    (html-nc)))
+
 ;; Cut/copy/paste
 (provide 'cua-mode)
 ;; Note: for cua-mode, if you need to use a command on some text, use C-S-x or C-S-c
@@ -73,6 +77,7 @@
 (global-set-key (kbd "C-x e") 'tmp-macs)
 (global-set-key (kbd "C-x v") 'viper-mode)
 (global-set-key (kbd "C-S-e") 'new-esh)
+(global-set-key (kbd "C-M-S-s") 'g-re-rep)
 
 ;; Lisp interaction mode
 (define-key lisp-interaction-mode-map (kbd "C-e") 'eval-print-last-sexp)
