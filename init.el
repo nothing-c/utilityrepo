@@ -56,6 +56,9 @@
 (global-set-key (kbd "<home>") 'menu-bar-open)
 (global-set-key (kbd "<C-right>") 'next-buffer)
 (global-set-key (kbd "<C-left>") 'previous-buffer)
+;; to keep hands on homerow
+(global-set-key (kbd "C-x C-h") 'previous-buffer)
+(global-set-key (kbd "C-x C-l") 'next-buffer)
 (global-set-key (kbd "C-S-s") 're-search-forward)
 (global-set-key (kbd "M-s") 'query-replace)
 (global-set-key (kbd "M-q") 'suspend-frame)
