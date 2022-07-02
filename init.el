@@ -70,6 +70,7 @@
 (global-set-key (kbd "C-x v") 'viper-mode)
 (global-set-key (kbd "C-S-e") 'new-esh)
 (global-set-key (kbd "C-M-S-s") 'g-re-rep)
+(global-set-key (kbd "C-x c") 'calc)
 
 ;; Lisp interaction mode
 (define-key lisp-interaction-mode-map (kbd "C-e") 'eval-print-last-sexp)
