@@ -39,9 +39,15 @@
           (lambda ()
             (define-key text-mode-map "\t" 'tab-to-tab-stop)))
 
-(add-hook 'html-mode-hook
+;; Make lines truncate
+;;NOTE: add this to the mode you're in if you need to
+(add-hook 'org-mode-hook
 	  (lambda ()
-	    (html-nc)))
+	    (toggle-truncate-lines)))
+
+;;(add-hook 'html-mode-hook
+;;	  (lambda ()
+;;	    (html-nc)))
 
 ;; Cut/copy/paste
 (provide 'cua-mode)
