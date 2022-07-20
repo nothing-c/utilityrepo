@@ -9,6 +9,9 @@
 (custom-set-faces
  )
 
+;; Set to default position
+(set-frame-position (selected-frame) 469 150)
+
 ;;Change this file path based on what pic/file you want on startup
 (setq initial-buffer-choice "")
 (setq tab-always-indent '())
