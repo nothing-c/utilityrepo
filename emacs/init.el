@@ -42,10 +42,16 @@
   (interactive)
   (eshell 'N))
 
+(defun text-tab ()
+  "Do some proper tabbing in text=mode"
+  (interactive)
+  (insert "    "))
+
 ;;fix text-mode tab behavior
 (add-hook 'text-mode-hook
           (lambda ()
-            (define-key text-mode-map "\t" 'tab-to-tab-stop)))
+            (define-key text-mode-map "\t" 'text-tab)
+	    (electric-indent-local-mode 0)))
 
 ;; Make lines truncate
 ;;NOTE: add this to the mode you're in if you need to
