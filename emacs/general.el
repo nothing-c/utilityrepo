@@ -61,7 +61,11 @@
 (defun status ()
   "Emacs status report"
   (interactive)
-  (insert (concat (shell-command-to-string "date") (battery) "\n" (emacs-uptime) "\n" (emacs-version) "\n")))
+  (with-output-to-temp-buffer "*status*"
+    (print (shell-command-to-string "date"))
+    (print (battery))
+    (print (concat "Uptime: " (emacs-uptime)))
+    (print (emacs-version))))
 
 (defun html-nc ()
   (interactive)
