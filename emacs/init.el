@@ -29,6 +29,7 @@
 (setq ido-everywhere t)
 (setq ido-create-new-buffer 'always)
 (ido-mode 1)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;;THE FUNCTION ZONE WOOOO
 (defun esh-buf ()
