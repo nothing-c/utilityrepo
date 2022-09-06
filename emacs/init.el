@@ -130,5 +130,11 @@
 ;;Overwrite when region selected
 (delete-selection-mode)
 
+;; Enable hl-line
+(provide 'hl-line-mode)
+(hl-line-mode)
+;; Enable which-function
+(provide 'which-function-mode)
+(which-function-mode)
 
 
