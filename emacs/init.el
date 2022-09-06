@@ -135,9 +135,6 @@
 ;; Enable hl-line
 (provide 'hl-line-mode)
 (hl-line-mode)
-;; Enable which-function
-(provide 'which-function-mode)
-(which-function-mode)
 
 ;; Load custom theme
 (load-theme 'nichtsc t)
