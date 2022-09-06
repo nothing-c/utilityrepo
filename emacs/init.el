@@ -3,7 +3,9 @@
 (custom-set-variables
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-enabled-themes '(nichtsc))
+ '(custom-safe-themes
+   '("7034f9c4f90d6d56b85bf4037c076a884c1bead8f841f1cdf66c6d39b62c9b1a" default))
  '(inhibit-startup-screen t)
  '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
