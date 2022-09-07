@@ -32,6 +32,8 @@
 (setq ido-create-new-buffer 'always)
 (ido-mode 1)
 (setq-default buffer-file-coding-system 'utf-8-unix)
+(global-hl-line-mode 1)
+
 
 ;;THE FUNCTION ZONE WOOOO
 (defun esh-buf ()
@@ -131,10 +133,6 @@
 
 ;;Overwrite when region selected
 (delete-selection-mode)
-
-;; Enable hl-line
-(provide 'hl-line-mode)
-(hl-line-mode)
 
 ;; Load custom theme
 (load-theme 'nichtsc t)
