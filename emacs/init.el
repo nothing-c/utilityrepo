@@ -137,4 +137,6 @@
 ;; Load custom theme
 (load-theme 'nichtsc t)
 
+;; Deal with big ol' lines
+(global-so-long-mode)
 
