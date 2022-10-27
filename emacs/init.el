@@ -140,3 +140,5 @@
 ;; Deal with big ol' lines
 (global-so-long-mode)
 
+;; Precise scroll
+(pixel-scroll-mode)
