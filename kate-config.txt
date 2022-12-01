@@ -1,0 +1,18 @@
+move chars: arrows + C-h/l
+move lines: arrows + C-j/k
+move words: C-arrows + M-h/l
+start of line: C-a
+end of line: C-e
+delete line: M-k
+other window: C-S-o
+select down/up: C-S-j/k
+
+custome theme (like emacs, the reddish type)
+- see nichtsc-theme.theme
+
+show file browser
+show terminal (when available, it's not on windows)
+show path in titlebar
+
+don't show statusbar
+don't show menubar
