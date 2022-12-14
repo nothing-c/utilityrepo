@@ -107,11 +107,14 @@
 (define-key mv-map (kbd "C-k") 'previous-line)
 (define-key mv-map (kbd "C-j") 'next-line)
 (define-key mv-map (kbd "C-l") 'forward-char)
-(define-key mv-map (kbd "C-S-k") 'kill-line)
-(define-key mv-map (kbd "C-S-l") 'forward-word)
-(define-key mv-map (kbd "C-S-h") 'backward-word)
-(define-key mv-map (kbd "M-h") 'beginning-of-line)
-(define-key mv-map (kbd "M-l") 'end-of-line)
+;;(define-key mv-map (kbd "C-S-k") 'kill-line)
+(define-key mv-map (kbd "M-k") 'kill-line)
+;;(define-key mv-map (kbd "C-S-l") 'forward-word)
+(define-key mv-map (kbd "M-l") 'forward-word)
+;;(define-key mv-map (kbd "C-S-h") 'backward-word)
+define-key mv-map (kbd "M-h") 'backward-word)
+;;(define-key mv-map (kbd "M-h") 'beginning-of-line)
+;;(define-key mv-map (kbd "M-l") 'end-of-line)
 
 (define-minor-mode mv-mode
   "Vi-type movement with control keys"
