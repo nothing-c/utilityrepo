@@ -112,7 +112,7 @@
 ;;(define-key mv-map (kbd "C-S-l") 'forward-word)
 (define-key mv-map (kbd "M-l") 'forward-word)
 ;;(define-key mv-map (kbd "C-S-h") 'backward-word)
-define-key mv-map (kbd "M-h") 'backward-word)
+(define-key mv-map (kbd "M-h") 'backward-word)
 ;;(define-key mv-map (kbd "M-h") 'beginning-of-line)
 ;;(define-key mv-map (kbd "M-l") 'end-of-line)
 
