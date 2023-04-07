@@ -115,6 +115,7 @@
 (define-key mv-map (kbd "M-h") 'backward-word)
 ;;(define-key mv-map (kbd "M-h") 'beginning-of-line)
 ;;(define-key mv-map (kbd "M-l") 'end-of-line)
+(define-key mv-map (kbd "M-o") 'find-file-other-frame) ;;C-x 5 0 to close
 
 (define-minor-mode mv-mode
   "Vi-type movement with control keys"
