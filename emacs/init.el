@@ -132,11 +132,8 @@
 (load "~/.emacs.d/general.el")
 
 ;;load modes and associate
-(load "~/.emacs.d/go-mode.el")
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-
-;;Overwrite when region selected
-(delete-selection-mode)
+;;(load "~/.emacs.d/go-mode.el")
+;;(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
 ;; Load custom theme
 (load-theme 'nichtsc t)
