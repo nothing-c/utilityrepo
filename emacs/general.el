@@ -77,3 +77,28 @@
   (let ((re (read-string "Regex: ")) (rep (read-string "Replacement: ")))
     (while (re-search-forward re)
       (replace-match rep))))
+(defun google ()
+  "Quick google function (you will need to substitute spaces with '+'"
+  (interactive)
+  (let ((search (read-string "Google:")))
+    (eww (concat "https://www.google.com/search?&q=" search))))
+
+(defun preview-buf ()
+  "Preview HTML buffer in EWW"
+  (interactive)
+  (eww-open-file (buffer-name)))
+
+(defun gopher ()
+  "Nab gopher sites from Emacs"
+  (interactive)
+  (let ((serv (read-string "Server:")) (dir (read-string "Directory:")))
+    (open-network-stream "goph" "*gopher*" serv 70)
+    (process-send-string "goph" (concat dir "\n."))))
+
+(defun hoogle ()
+  "Quick Haskell hoogle (will need to substitute spaces with '+')"
+  (interactive)
+  (let ((search (read-string "Hoogle:")))
+    (eww (concat "https://hoogle.haskell.org/?hoogle=" search))))
+
+(defun me () "Eshell in new frame" (interactive) (select-frame (make-frame)) (eshell "N"))
