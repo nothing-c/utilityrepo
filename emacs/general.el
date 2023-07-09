@@ -75,7 +75,7 @@
   "Fast global regex replace"
   (interactive)
   (let ((re (read-string "Regex: ")) (rep (read-string "Replacement: ")))
-    (while (re-search-forward re)
+    (while (re-search-forward re '() 1) ;;no error msg
       (replace-match rep))))
 (defun google ()
   "Quick google function (you will need to substitute spaces with '+'"
