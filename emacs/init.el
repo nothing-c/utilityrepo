@@ -14,6 +14,10 @@
 ;; Set to default position
 (set-frame-position (selected-frame) 469 150)
 
+;; set to decent size
+(add-to-list 'default-frame-alist '(width  . 80))
+(add-to-list 'default-frame-alist '(height . 50))
+
 ;;Change this file path based on what pic/file you want on startup
 (setq initial-buffer-choice "")
 (setq tab-always-indent '())
