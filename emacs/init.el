@@ -147,3 +147,6 @@
 
 ;; Precise scroll
 (pixel-scroll-mode)
+
+;;hide backups
+(setq backup-directory-alist `(("." . "~/autosaves")))
