@@ -102,3 +102,9 @@
     (eww (concat "https://hoogle.haskell.org/?hoogle=" search))))
 
 (defun me () "Eshell in new frame" (interactive) (select-frame (make-frame)) (eshell "N"))
+
+(defun prep-space () "Open VC-mode and Dired for a folder in separate frames, creating the folder and initializing Git if it doesn't exist. Relative pathing used, repo is assumed to be initialized if the folder exists."
+       (interactive)
+       (let ((d (read-string "Dir: ")))
+	 (cond ((file-directory-p d) (dired-other-frame d) (other-frame-prefix) (vc-dir "."))
+	       (t (make-directory d) (eshell-command (concat "git init")) (dired-other-frame d) (other-frame-prefix) (vc-dir ".")))))
