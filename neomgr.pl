@@ -62,12 +62,9 @@ sub sync ($$) {
     my $h=shift; my $auth=shift;
     my @rem=clist $h,$auth; @rem=sort @rem; # it doesn't like composing sort with clist
     opendir(my $d,'./'); my @loc=sort grep /\.html/,readdir $d; closedir $d;
-    #@m;
-    #foreach (@loc) { my $x = $_; my @t=grep /$_/,@rem; push @m,$x if 0 == scalar @t; say $x;}
-    #@m=map { say; $_ unless scalar (grep /$_/,@rem); say; } @loc; # find missing
     @m=map { my $x=$_; $x unless grep /$x/,@rem } @loc; @m=grep /\.html/,@m;
     say "Uploading " . join ", ",@m;
-    foreach (@m) { open my $f,"<",$_; say "$_ successfully uploaded" if upload $h,$auth,$_,<$f>; close $f; }
+    foreach (@m) { open my $f,"<",$_; say "$_ successfully uploaded" if upload $h,$auth,$_,join "\n",(<$f>); close $f; }
 }
 
 sub help {
