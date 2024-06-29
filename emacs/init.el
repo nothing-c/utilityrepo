@@ -168,3 +168,6 @@
                          (message "Garbage Collector has run for %.06fsec"
                                   (k-time (garbage-collect))))))
 
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
