@@ -1,0 +1,20 @@
+Shellscript for checking the last update on a given manga from Manganato (formerly Manganelo, Mangakakalot):
+wget -qO- "MANGA LINK HERE" |grep Update |perl -n -pe 's/.*<.*>(.*)<\/span><\/p>/$1/'
+
+Point-free delta (current last):
+delta = zipWith (-)
+ghci> delta [73, 12, 9] [62, 9, 10]
+=> [11,3,-1] 
+
+First-order differentiation approximation:
+dif :: Fractional a => a -> a -> a -> a
+dif fxh fx h = (fxh - fx)/h
+ghci> dif 3 0 1.5
+=> 2.0
+
+Elisp compose:
+(defun compose (x) (if (= (length x) 2) x (list (car x) (compose (cdr x)))))
+(defmacro comp (x) (compose x))
+
+ESPN RSS nab title and description:
+perl -MHTTP::Tiny -e '$h=HTTP::Tiny->new(); $r=$h->get(q(https://www.espn.com/espn/rss/nfl/news)); die q(No pull!) unless $r->{success}; @x = split /<item>/,$r->{content}; for (grep !/rss/,@x) { @y=split /></,$_; $y[1]=~s/^.+\[(.+)\]{2}/$1/; $y[4]=~s/^.*\[(.+)\]{2}/$1/;$l=(grep /https:/,@y)[1]; $l=~s/^.*\[(.+)\]{2}/$1/;printf qq(Title: %s\nDescription: %s\nLink: %s\n),$y[1],$y[4],$l;}'
