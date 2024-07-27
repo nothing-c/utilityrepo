@@ -67,11 +67,19 @@ sub sync ($$) {
     foreach (@m) { open my $f,"<",$_; say "$_ successfully uploaded" if upload $h,$auth,$_,join "\n",(<$f>); close $f; }
 }
 
+# quick upload
+# http instance, auth
+sub qupload($$) {
+    my $h=shift; my $auth=shift;
+    open my $f,"<",$ARGV[1]; say "$ARGV[1] successfully uploaded" if upload $h,$auth,$ARGV[1],join "\n",(<$f>); close $f;
+}
+
 sub help {
     say 'Neocities site manager
-Usage: neomgr [info|sync|list|help]
+Usage: neomgr [upload|info|sync|list|help]
 - info: shows site information (hits, etc.)
 - sync: uploads all local HTML files not on the Neocities server
+- upload: upload a file
 - list: lists all pages currently on the Neocities server
 - help: displays this message';
     exit;
@@ -88,7 +96,8 @@ sub plist ($$) {
 our %cmd = (
     info => \&pinfo,
     sync => \&sync,
-    list => \&plist
+    list => \&plist,
+    upload => \&qupload,
    );
 
 help if ($#ARGV < 0) || !(exists $cmd{$ARGV[0]});
