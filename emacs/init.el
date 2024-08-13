@@ -83,26 +83,14 @@
 ;; Keybinds
 ;; General usage
 (global-set-key (kbd "<home>") 'menu-bar-open)
-(global-set-key (kbd "<C-right>") 'next-buffer)
-(global-set-key (kbd "<C-left>") 'previous-buffer)
-;; to keep hands on homerow
-(global-set-key (kbd "C-x C-h") 'previous-buffer)
-(global-set-key (kbd "C-x C-l") 'next-buffer)
-(global-set-key (kbd "C-S-s") 're-search-forward)
 (global-set-key (kbd "M-s") 'query-replace)
 (global-set-key (kbd "M-q") 'suspend-frame)
 ;; Saveas is just C-x C-w lol
 
 ;; Extra functionality
 (global-set-key (kbd "C-x t") 'esh-buf)
-(global-set-key (kbd "C-x e") 'tmp-macs)
-(global-set-key (kbd "C-x v") 'viper-mode)
 (global-set-key (kbd "C-S-e") 'new-esh)
-(global-set-key (kbd "C-M-S-s") 'g-re-rep)
 (global-set-key (kbd "C-x c") 'calc)
-
-;; Lisp interaction mode
-(define-key lisp-interaction-mode-map (kbd "C-e") 'eval-print-last-sexp)
 
 ;; Special movement minor mode
 ;; Like vi, but C-hjkl
@@ -111,14 +99,9 @@
 (define-key mv-map (kbd "C-k") 'previous-line)
 (define-key mv-map (kbd "C-j") 'next-line)
 (define-key mv-map (kbd "C-l") 'forward-char)
-;;(define-key mv-map (kbd "C-S-k") 'kill-line)
 (define-key mv-map (kbd "M-k") 'kill-line)
-;;(define-key mv-map (kbd "C-S-l") 'forward-word)
 (define-key mv-map (kbd "M-l") 'forward-word)
-;;(define-key mv-map (kbd "C-S-h") 'backward-word)
 (define-key mv-map (kbd "M-h") 'backward-word)
-;;(define-key mv-map (kbd "M-h") 'beginning-of-line)
-;;(define-key mv-map (kbd "M-l") 'end-of-line)
 (define-key mv-map (kbd "M-o") 'find-file-other-frame) ;;C-x 5 0 to close
 
 (define-minor-mode mv-mode
@@ -134,10 +117,6 @@
 
 ;;load general snippets
 (load "~/.emacs.d/general.el")
-
-;;load modes and associate
-;;(load "~/.emacs.d/go-mode.el")
-;;(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
 ;; Load custom theme
 (load-theme 'nichtsc t)
