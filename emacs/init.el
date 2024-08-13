@@ -85,7 +85,8 @@
 (global-set-key (kbd "<home>") 'menu-bar-open)
 (global-set-key (kbd "M-s") 'query-replace)
 (global-set-key (kbd "M-q") 'suspend-frame)
-;; Saveas is just C-x C-w lol
+(global-set-key (kbd "M-[") 'scroll-down)
+(global-set-key (kbd "M-]") 'scroll-up)
 
 ;; Extra functionality
 (global-set-key (kbd "C-x t") 'esh-buf)
