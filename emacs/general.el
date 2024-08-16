@@ -108,3 +108,5 @@
        (let ((d (read-string "Dir: ")))
 	 (cond ((file-directory-p d) (dired-other-frame d) (other-frame-prefix) (vc-dir "."))
 	       (t (make-directory d) (eshell-command (concat "git init")) (dired-other-frame d) (other-frame-prefix) (vc-dir ".")))))
+
+(defun night-mode () "Prep for night hacking" (interactive) (global-hl-line-mode 0) (load-theme 'bernstein-schwarz t))
