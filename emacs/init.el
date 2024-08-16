@@ -150,4 +150,5 @@
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(appt-activate 1) ;; allow for appt notifications
 
