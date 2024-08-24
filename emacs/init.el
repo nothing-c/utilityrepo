@@ -37,7 +37,7 @@
 (ido-mode 1)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 (global-hl-line-mode 1)
-
+(add-to-list 'load-path "~/.emacs.d/")
 
 ;;THE FUNCTION ZONE WOOOO
 (defun esh-buf ()
