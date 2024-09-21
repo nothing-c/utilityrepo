@@ -151,6 +151,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (appt-activate 1) ;; allow for appt notifications
+(setq ring-bell-function 'ignore)
 (load-file "~/.emacs.d/pod-mode.el")
 (require 'pod-mode)
 
