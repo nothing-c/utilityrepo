@@ -34,6 +34,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (setq ido-create-new-buffer 'always)
+(setq ido-enable-flex-matching t)
 (ido-mode 1)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 (global-hl-line-mode 1)
