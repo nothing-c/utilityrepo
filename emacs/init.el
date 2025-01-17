@@ -105,7 +105,12 @@
 (define-key mv-map (kbd "M-l") 'forward-word)
 (define-key mv-map (kbd "M-h") 'backward-word)
 (define-key mv-map (kbd "M-o") 'find-file-other-frame) ;;C-x 5 0 to close
-
+;; sexp lisp movement
+(define-key mv-map (kbd "C-M-l") 'forward-sexp)
+(define-key mv-map (kbd "C-M-h") 'backward-sexp)
+(define-key mv-map (kbd "C-M-j") 'down-list)
+(define-key mv-map (kbd "C-M-k") 'backward-up-list)
+(define-key mv-map (kbd "C-S-M-k") 'kill-sexp)
 (define-minor-mode mv-mode
   "Vi-type movement with control keys"
   :global t
