@@ -161,3 +161,38 @@
 (load-file "~/.emacs.d/pod-mode.el")
 (require 'pod-mode)
 
+(global-set-key (kbd "C-c n") 'rand-buf)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-S-s") 'occur)
+(require 'org)
+(setq org-startup-with-inline-images t) ;; Render
+(setq org-image-actual-width '())
+(load-file "~/.emacs.d/neomgr.el")
+(load-file "~/.emacs.d/notes.el")
+(init-notes)
+(global-prettify-symbols-mode)
+(load-file "~/.emacs.d/external-cmds.el")
+(nc-externals nc-assoc)
+(setq org-pretty-entities t)
+(put 'downcase-region 'disabled nil)
+(setq inferior-lisp-program "sbcl.exe --noinform")
+(fset 'anki-cloze-def
+   (kmacro-lambda-form [?\{ ?\{ ?c ?1 ?: ?: ?\C-s ?: return ?\C-h ?\} ?\} ?\C-l ?\C-l ?\{ ?\{ ?c ?2 ?: ?: ?\C-e ?\} ?\} ?\C-l] 0 "%d"))
+(fset 'anki-cloze-list
+      (kmacro-lambda-form [?\C-l ?\C-l ?\{ ?\{ ?c ?1 ?: ?: ?\C-e ?\} ?\} ?\C-l] 0 "%d"))
+(defun cloze-region ()
+  "Make a region an Anki cloze"
+  (interactive)
+  (let ((pt (region-beginning)))
+    (goto-char (region-end))
+    (insert "}}")
+    (goto-char pt)
+    (insert "{{")))
+(setq enable-recursive-minibuffers t)
+(global-set-key (kbd "C-c C-x C-c") 'compile)
+(fset 'rotate-windows
+      (kmacro-lambda-form [?\C-x ?r ?  ?0 ?\C-x ?o ?\C-x ?1 ?\C-x ?3 ?\C-x ?r ?j ?0] 0 "%d"))
+(global-set-key (kbd "<mouse-2>") 'cua-paste)
+(load-file "~/.emacs.d/acme-mode.el")
+(setq-default major-mode 'org-mode)
