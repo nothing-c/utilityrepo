@@ -30,6 +30,8 @@
 (put 'dired-find-alternate-file 'disabled nil)
 ;;fundamental mode sucks
 (setq-default major-mode 'text-mode)
+;; indent org files
+(setq org-startup-indented t)
 ;; use ido-mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
