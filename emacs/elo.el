@@ -7,6 +7,7 @@
   (/ 1.0 (+ 1.0 (expt 10.0 (/ (- elo2 elo1) 400.0)))))
 
 (defmacro beats (x y)
+  "X beats Y"
   `(setf ,x (elo-update ,x (elo-predict ,x ,y) 1))
   `(setf ,y (elo-update ,y (elo-predict ,y ,x) 0)))
 
@@ -37,3 +38,9 @@
 ;; 	   (beats bar baz)
 ;; 	   (tie foo baz)
 ;; 	   (beats bar foo))		; yup!
+
+(defun versus (t1 t2)
+  "For a pre-defined Elo score DB *db*, compare the teams & return the expected winner"
+  (if (> (cdr (assoc t1 *db*)) (cdr (assoc t2 *db*)))
+      t1
+    t2))
